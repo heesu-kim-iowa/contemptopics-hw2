@@ -7,7 +7,7 @@ void ofApp::onSliderChange_theta(float& val) {
 		red = 255 / 3.14 * theta;
 	}
 	else {
-		red = -255 / 3.14*theta + 3.14 * 2;
+		red = -255 / 3.14*theta + 255*2;
 	}
 		
 }
