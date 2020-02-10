@@ -37,6 +37,10 @@ class ofApp : public ofBaseApp{
 		Eigen::Vector3d a;
 		Eigen::Vector3d b;
 		Eigen::Vector3d c;
+		Eigen::Vector3d d;
+
+		Eigen::Matrix2d rot;
+		Eigen::Vector2d tran;
 
 		float a0;
 		float a1;
@@ -44,6 +48,8 @@ class ofApp : public ofBaseApp{
 		float b1;
 		float c0;
 		float c1;
+		float d0;
+		float d1;
 
 		float a0_new;
 		float a1_new;
@@ -51,14 +57,21 @@ class ofApp : public ofBaseApp{
 		float b1_new;
 		float c0_new;
 		float c1_new;
+		float d0_new;
+		float d1_new;
 
 		Eigen::Vector3d a_new;
 		Eigen::Vector3d b_new;
 		Eigen::Vector3d c_new;
+		Eigen::Vector3d d_new;
 
 		float theta;
 		float tx;
 		float ty;
 
-		float scale;
+		float red;
+		float green;
+		float blue;
+
+
 };
