@@ -3,23 +3,18 @@
 
 void ofApp::onSliderChange_theta(float& val) {
 	theta = val;
-	if (theta < 3.14) {
-		red = 255 / 3.14 * theta;
-	}
-	else {
-		red = -255 / 3.14*theta + 255*2;
-	}
+	red = 255.0 * cos(theta);
 		
 }
 
 void ofApp::onSliderChange_tx(float& val) {
 	tx = val;
-	green = 255 / 1024 * tx;
+	green = 255.0 * cos(pow(10, -2) * tx);
 }
 
 void ofApp::onSliderChange_ty(float& val) {
 	ty = val;
-	blue = 255 / 768 * ty;
+	blue = 255.0 * cos(pow(10, -2) * ty);
 }
 
 //--------------------------------------------------------------
@@ -30,7 +25,7 @@ void ofApp::setup(){
 	slider_ty.addListener(this, &ofApp::onSliderChange_ty);
 	
 	gui.setup();
-	gui.add( slider_theta.setup("theta", 0, 0, 2*3.14) );
+	gui.add( slider_theta.setup("theta", 3.14, 0, 2*3.14) );
 	gui.add(slider_tx.setup("tx", 512, 0, 1024));
 	gui.add(slider_ty.setup("ty", 384, 0, 768));
 
@@ -84,10 +79,10 @@ void ofApp::draw(){
 	ofEndShape();
 	
 	// Draw rotation mat and traslation mat.
-	rot << T(0, 0), T(0, 1),
-		   T(1, 0), T(1, 1);
+	rot << round(T(0, 0)*100)/100, round(T(0, 1)*100)/100,
+		   round(T(1, 0)*100)/100, round(T(1, 1)*100)/100;
 
-	tran << T(0, 2), T(1, 2);
+	tran << round(T(0, 2)*100)/100, round(T(1, 2)*100)/100;
 
 	ofSetColor(255, 255, 255);
 	ofDrawBitmapString(rot, 0, 20);
